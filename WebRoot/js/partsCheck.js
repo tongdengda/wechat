@@ -1,16 +1,23 @@
-var jsonPartsList=[{"pm":"²ñÓÍÂËĞ¾1","jx":"DH220","jh":"123456","pp":"¶·É½","sl":5},
-							   {"pm":"²ñÓÍÂËĞ¾2","jx":"DH220","jh":"123456","pp":"¶·É½","sl":5},
-							   {"pm":"²ñÓÍÂËĞ¾3","jx":"DH220","jh":"123456","pp":"¶·É½","sl":5},
-							   {"pm":"²ñÓÍÂËĞ¾4","jx":"DH220","jh":"123456","pp":"¶·É½","sl":5},
-							   {"pm":"²ñÓÍÂËĞ¾5","jx":"DH220","jh":"123456","pp":"¶·É½","sl":5},
-							   {"pm":"²ñÓÍÂËĞ¾6","jx":"DH220","jh":"123456","pp":"¶·É½","sl":5},
-							   {"pm":"²ñÓÍÂËĞ¾7","jx":"DH220","jh":"123456","pp":"¶·É½","sl":5},
-							   {"pm":"²ñÓÍÂËĞ¾8","jx":"DH220","jh":"123456","pp":"¶·É½","sl":5},
-							   {"pm":"²ñÓÍÂËĞ¾9","jx":"DH220","jh":"123456","pp":"¶·É½","sl":5},
-							   {"pm":"²ñÓÍÂËĞ¾10","jx":"DH220","jh":"123456","pp":"¶·É½","sl":5}
+var jsonPartsList=[{"pm":"æŸ´æ²¹æ»¤èŠ¯1","jx":"DH220","jh":"123456","pp":"æ–—å±±","sl":5},
+							   {"pm":"æŸ´æ²¹æ»¤èŠ¯2","jx":"DH220","jh":"123456","pp":"æ–—å±±","sl":5},
+							   {"pm":"æŸ´æ²¹æ»¤èŠ¯3","jx":"DH220","jh":"123456","pp":"æ–—å±±","sl":5},
+							   {"pm":"æŸ´æ²¹æ»¤èŠ¯4","jx":"DH220","jh":"123456","pp":"æ–—å±±","sl":5},
+							   {"pm":"æŸ´æ²¹æ»¤èŠ¯5","jx":"DH220","jh":"123456","pp":"æ–—å±±","sl":5},
+							   {"pm":"æŸ´æ²¹æ»¤èŠ¯6","jx":"DH220","jh":"123456","pp":"æ–—å±±","sl":5},
+							   {"pm":"æŸ´æ²¹æ»¤èŠ¯7","jx":"DH220","jh":"123456","pp":"æ–—å±±","sl":5},
+							   {"pm":"æŸ´æ²¹æ»¤èŠ¯8","jx":"DH220","jh":"123456","pp":"æ–—å±±","sl":5},
+							   {"pm":"æŸ´æ²¹æ»¤èŠ¯9","jx":"DH220","jh":"123456","pp":"æ–—å±±","sl":5},
+							   {"pm":"æŸ´æ²¹æ»¤èŠ¯10","jx":"DH220","jh":"123456","pp":"æ–—å±±","sl":5}
 							   ];
+var choosedJsonPartsList=[];
+function chooseItem(i){
+	   var checked=$("#checkbox"+i).is(":checked");
+	   if(checked){
+	      choosedJsonPartsList.push(jsonPartsList[i]);
+	   }
+	}
 function showPartsList(){
-	for(var i=0;i<jsonData.length;i++){
+	for(var i=0;i<jsonPartsList.length;i++){
 	       var list="<li data-icon=\"false\">"+
 						"<input onclick=\"chooseItem("+i+")\" type=\"checkbox\" id=\"checkbox"+i+"\">"+
 						"<label for=\"checkbox"+i+"\">"+
@@ -18,11 +25,16 @@ function showPartsList(){
 								"<strong>"+jsonPartsList[i].pm+"</strong><span>"+jsonPartsList[i].jx+"</span><span>-</span><span>"+jsonPartsList[i].jh+"</span>"+
 							"</p>"+
 							"<p>"+
-								"<span>"+jsonPartsList[i].pp+"</span><span>ÉêÇëÊıÁ¿</span><span>£º</span><span>"+jsonPartsList[i].sl+"</span>"+
+								"<span>"+jsonPartsList[i].pp+"</span><span>ç”³è¯·æ•°é‡</span><span>ï¼š</span><span>"+jsonPartsList[i].sl+"</span>"+
 							"</p>"+
 						"</label>"+
 					"</li>";
 		     $("#partsList").append(list);
 	   }
-	 $('#partsList').listview('refresh').trigger("create");
+	//$('#partsList').listview('refresh').trigger("create");
+	//$('#partsList').listview('refresh');
+}
+function submit(){
+	var aaa=JSON.stringify(choosedJsonPartsList);
+	alert(aaa);
 }

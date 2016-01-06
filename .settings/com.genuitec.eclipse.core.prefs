@@ -1,0 +1,5 @@
+#Wed Jan 06 15:00:10 CST 2016
+eclipse.preferences.version=1
+validator.Checked=WebRoot/js,WebRoot/jquery.mobile-1.4.5
+validator.Revalidate=true
+validator.Unchecked=

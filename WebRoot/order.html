@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="css/techRepair.css" type="text/css"></link>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/common.js"></script>
 		<script src="js/orderList.js"></script>
 		<script src="js/partsCheck.js"></script>
 		<script type="text/javascript">
@@ -21,7 +22,7 @@
 			}
 		
 			$(document).on("pageinit","#orderlist",function() {
-			   
+			   showOrderList();
 			});
 			
 			
@@ -32,7 +33,7 @@
 		            // 验证是不是第二页
 		            if ( processedHash.cleanHash === "#partscheck" ) {
 		                var pk=processedHash.queryParameters["pkcsswork"];
-		                alert(pk);
+		                showPartsList();
 		            }
 		        }
 		    });
@@ -47,6 +48,7 @@
                 </div>
 				<ul data-role="listview" data-inset="true" id="orderListView">
 				</ul>
+				<button id="aaa">我靠</button>
 			</div><!-- /content -->
 		</div><!-- /page -->
 		<!-- __________________________________第二个页面_____________________________________________ -->
@@ -68,7 +70,7 @@
 			<div data-role="footer" data-position="fixed">
 				<div style="margin-left: 10px; margin-right: 10px; margin-bottom: 5px">
 					<button data-role="none" id="submit"
-						class="techRepair-button-green">
+						class="techRepair-button-green" onclick="submit()">
 						审核
 					</button>
 				</div>
