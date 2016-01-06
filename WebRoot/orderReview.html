@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"
+			type="text/css"></link>
+		<link rel="stylesheet" href="themes/theme.min.css" type="text/css"></link>
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css"
+			type="text/css"></link>
+		<link rel="stylesheet" href="css/techRepair.css" type="text/css"></link>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript">
+		var jsonData=[{"pm":"柴油滤芯1","jx":"DH220","jh":"123456","pp":"斗山","sl":5},
+	   {"pm":"柴油滤芯2","jx":"DH220","jh":"123456","pp":"斗山","sl":5},
+	   {"pm":"柴油滤芯3","jx":"DH220","jh":"123456","pp":"斗山","sl":5},
+	   {"pm":"柴油滤芯4","jx":"DH220","jh":"123456","pp":"斗山","sl":5},
+	   {"pm":"柴油滤芯5","jx":"DH220","jh":"123456","pp":"斗山","sl":5},
+	   {"pm":"柴油滤芯6","jx":"DH220","jh":"123456","pp":"斗山","sl":5},
+	   {"pm":"柴油滤芯7","jx":"DH220","jh":"123456","pp":"斗山","sl":5},
+	   {"pm":"柴油滤芯8","jx":"DH220","jh":"123456","pp":"斗山","sl":5},
+	   {"pm":"柴油滤芯9","jx":"DH220","jh":"123456","pp":"斗山","sl":5},
+	   {"pm":"柴油滤芯10","jx":"DH220","jh":"123456","pp":"斗山","sl":5}
+	   ];
+	   var choosedJsonData=[];
+	function loginSuccess(data, status) {
+		alert(data);
+	}
+	function loginError(data, status) {
+		alert("登录失败");
+	}
+	function chooseItem(i){
+	   var checked=$("#checkbox"+i).is(":checked");
+	   if(checked){
+	      choosedJsonData.push(jsonData[i]);
+	   }
+	}
+	$(document).ready(function() {
+	   for(var i=0;i<jsonData.length;i++){
+	       var list="<li data-icon=\"false\">"+
+						"<input onclick=\"chooseItem("+i+")\" type=\"checkbox\" id=\"checkbox"+i+"\">"+
+						"<label for=\"checkbox"+i+"\">"+
+							"<p>"+
+								"<strong>"+jsonData[i].pm+"</strong><span>"+jsonData[i].jx+"</span><span>-</span><span>"+jsonData[i].jh+"</span>"+
+							"</p>"+
+							"<p>"+
+								"<span>"+jsonData[i].pp+"</span><span>申请数量</span><span>：</span><span>"+jsonData[i].sl+"</span>"+
+							"</p>"+
+						"</label>"+
+					"</li>";
+		     $("#partsList").append(list);
+	   }
+	   $('#partsList').listview('refresh').trigger("create");
+	   $("#partsList").listview("refresh");
+	
+	
+	
+		$("#submit").click(function() {
+			//$.mobile.navigate("orderReviewConfirm.html",{info:"你好啊"});
+			//alert(JSON.stringify(choosedJsonData));
+			window.location.href = "orderReviewConfirm.html";
+		})
+	});
+</script>
+	</head>
+	<body>
+		<div data-role="page">
+			<div data-role="header" data-position="fixed">
+				<a href="../toolbar/" data-rel="back"
+					class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
+				<h1>
+					订单审核
+				</h1>
+				<a href="../toolbar/"
+					class="ui-btn ui-btn-right ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-home">home</a>
+			</div>
+
+			<div role="main" class="ui-content">
+
+				<input data-type="search" id="searchForCollapsibleSet">
+
+				<ul data-role="listview" id="partsList" data-inset="true">
+
+				</ul>
+			</div>
+
+			<div data-role="footer" data-position="fixed">
+				<div
+					style="margin-left: 10px; margin-right: 10px; margin-bottom: 5px">
+					<button data-role="none" id="submit"
+						class="techRepair-button-green">
+						审核
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

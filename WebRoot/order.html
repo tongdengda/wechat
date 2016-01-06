@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" type="text/css"></link>
+		<link rel="stylesheet" href="themes/theme.min.css" type="text/css"></link>
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" type="text/css"></link>
+		<link rel="stylesheet" href="css/techRepair.css" type="text/css"></link>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/orderList.js"></script>
+		<script src="js/partsCheck.js"></script>
+		<script type="text/javascript">
+			function loginSuccess(data, status) {
+				alert(data);
+			}
+			function loginError(data, status) {
+				alert("登录失败");
+			}
+		
+			$(document).on("pageinit","#orderlist",function() {
+			   
+			});
+			
+			
+		    $.mobile.document.on( "pagecontainerbeforechange",function( event, data ) {
+		        var processedHash;
+		        if ( typeof data.toPage === "string" ) {
+		            processedHash = processHash( data.toPage );
+		            // 验证是不是第二页
+		            if ( processedHash.cleanHash === "#partscheck" ) {
+		                var pk=processedHash.queryParameters["pkcsswork"];
+		                alert(pk);
+		            }
+		        }
+		    });
+		    
+	    </script>
+	</head>
+	<body>
+	    <!-- __________________________________第一个页面_____________________________________________ -->
+		<div data-role="page" id="orderlist" data-url="orderlist">
+			<div role="main" class="ui-content" style="text-align: center;">
+                <div style="background:url(image/banner.png) 0 0 no-repeat;background-size:cover;width:100%;height:150px;">
+                </div>
+				<ul data-role="listview" data-inset="true" id="orderListView">
+				</ul>
+			</div><!-- /content -->
+		</div><!-- /page -->
+		<!-- __________________________________第二个页面_____________________________________________ -->
+		<div data-role="page" id="partscheck" data-url="partscheck">
+			<div data-role="header" data-position="fixed">
+				<a href="../toolbar/" data-rel="back"
+					class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
+				<h1>
+					订单审核
+				</h1>
+				<a href="../toolbar/"
+					class="ui-btn ui-btn-right ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-home">home</a>
+			</div><!-- /header -->
+			<div role="main" class="ui-content">
+				<input data-type="search" id="searchForCollapsibleSet">
+				<ul data-role="listview" id="partsList" data-inset="true">
+				</ul>
+			</div><!-- /content -->
+			<div data-role="footer" data-position="fixed">
+				<div style="margin-left: 10px; margin-right: 10px; margin-bottom: 5px">
+					<button data-role="none" id="submit"
+						class="techRepair-button-green">
+						审核
+					</button>
+				</div>
+			</div><!-- /footer -->
+		</div><!-- /page -->
+		<!-- __________________________________第三个页面_____________________________________________ -->
+	</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"
+			type="text/css"></link>
+		<link rel="stylesheet" href="themes/theme.min.css" type="text/css"></link>
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css"
+			type="text/css"></link>
+
+		<link rel="stylesheet" href="css/techRepair.css" type="text/css"></link>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript">
+	function loginSuccess(data, status) {
+		alert(data);
+	}
+	function loginError(data, status) {
+		alert("登录失败");
+	}
+	$(document).on("pagebeforeshow",function(event,data){
+	    alert(JSON.stringify(data));
+	});
+	/*
+	$(document).ready(function() {
+		$("#footer").click(function() {
+			var displayTag = $("#vendorPanel").css("display");
+			if (displayTag == "block") {
+				$("#vendorPanel").css("display", "none");
+			} else {
+				$("#vendorPanel").css("display", "block");
+			}
+		})
+	});
+	*/
+</script>
+	</head>
+	<body>
+		<div data-role="page">
+			<div data-role="header" data-position="fixed">
+				
+					<a href="../toolbar/" data-rel="back"
+						class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
+
+					<h1>
+						确认审核
+					</h1>
+					<a href="../toolbar/"
+						class="ui-btn ui-btn-right ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-home">home</a>
+				</div>
+
+
+
+				<div role="main" class="ui-content">
+					<ul data-role="listview">
+						<li>
+							<p>
+								<strong>柴油滤芯</strong><span>123456</span><span>-</span><span>1234</span>
+							</p>
+							<p>
+								<span>采购单价</span>
+								<input type="text" style="width: 75px"></input>
+								<span>采购数量</span><span>：</span><span>3</span>
+							</p>
+
+						</li>
+					</ul>
+				</div>
+
+				<div data-role="footer" data-position="fixed">
+					<h2 id="footer">
+						供货商、采购单
+					</h2>
+					<form id="vendorPanel" style="display: none">
+						<ul data-role="listview" data-inset="true">
+							<li class="ui-field-contain">
+								<label for="name2">
+									采购单号:
+								</label>
+								<input type="text" name="name2" id="name2" value=""
+									data-clear-btn="true">
+							</li>
+
+
+							<li class="ui-field-contain">
+								<label for="select-choice-1" class="select">
+									供应商:
+								</label>
+								<select name="select-choice-1" id="select-choice-1">
+									<option value="standard">
+										Standard: 7 day
+									</option>
+									<option value="rush">
+										Rush: 3 days
+									</option>
+									<option value="express">
+										Express: next day
+									</option>
+									<option value="overnight">
+										Overnight
+									</option>
+								</select>
+							</li>
+							<li>
+								<button type="submit" class="ui-btn ui-corner-all">
+									确认审核
+								</button>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+	</body>
+</html>
