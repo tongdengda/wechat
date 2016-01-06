@@ -1,5 +1,0 @@
-[ERROR] 2015-12-24 14:30:24,088 org.liufeng.course.util.MenuUtil 创建菜单失败 errcode:48001 errmsg:api unauthorized hint: [Wf62MA0594vr21]
-[INFO ] 2015-12-24 14:30:24,088 org.liufeng.weixin.main.MenuManager 菜单创建失败！
-[ERROR] 2015-12-24 14:30:57,206 org.liufeng.course.util.MenuUtil 创建菜单失败 errcode:48001 errmsg:api unauthorized hint: [p2TQ8a0627vr21]
-[INFO ] 2015-12-24 14:30:57,206 org.liufeng.weixin.main.MenuManager 菜单创建失败！
-[INFO ] 2015-12-24 14:41:20,748 org.liufeng.weixin.main.MenuManager 菜单创建成功！
