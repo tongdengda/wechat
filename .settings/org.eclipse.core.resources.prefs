@@ -1,5 +1,6 @@
-#Tue Jan 12 15:02:01 CST 2016
+#Wed Jan 27 14:39:18 CST 2016
 eclipse.preferences.version=1
 encoding//src/org/liufeng/course/menu/Button.java=UTF-8
+encoding//src/org/liufeng/course/message/event/BaseEvent.java=GBK
 encoding//src/org/liufeng/weixin/main/MenuManager.java=UTF-8
-encoding/<project>=UTF-8
+encoding/<project>=GBK
